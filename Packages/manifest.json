@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.ide.rider": "3.0.7",
     "com.unity.render-pipelines.universal": "11.0.0",
     "com.unity.ugui": "1.0.0",
     "com.unity.visualscripting": "1.6.1",
