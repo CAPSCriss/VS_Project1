@@ -1,9 +1,14 @@
+<<<<<<< Updated upstream
 ﻿using System.Collections;
+=======
+using System.Collections;
+>>>>>>> Stashed changes
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
+<<<<<<< Updated upstream
 public class AssetBundleBuilder
 {
     struct BuildTargetInfo {
@@ -87,3 +92,26 @@ public class AssetBundleBuilder
     }
 }
 
+=======
+public class AssetBundleGenerator
+{
+   [MenuItem("Assets/Build Asset Bundles")]
+    static void CreateAssetBundles() {
+
+        var directoryPath = EditorUtility.OpenFolderPanel("Select bundle location", "", "");
+
+        var platforms = new List<BuildTarget> { BuildTarget.Android, BuildTarget.iOS };
+
+        if (!string.IsNullOrEmpty(directoryPath)) {
+            foreach(var platform in platforms) {
+                Debug.Log("Building asset bundles for platform " + platform);
+                var finalPath = directoryPath + "/" + platform.ToString();
+                if (!Directory.Exists(finalPath))
+                    Directory.CreateDirectory(finalPath);
+                BuildPipeline.BuildAssetBundles(finalPath, BuildAssetBundleOptions.None, platform);
+            }
+        }
+    }
+
+}
+>>>>>>> Stashed changes
